@@ -210,7 +210,6 @@ window.addEventListener("DOMContentLoaded", () => {
     $turnDisplay.innerHTML = `It is ${currentPlayer.players.join(
       " and "
     )}'s turn`;
-    $turnDisplay.setAttribute("style", `color: #${currentPlayer.color[3]}`);
   }
 
   function addButtons() {

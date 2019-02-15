@@ -161,7 +161,3 @@ form {
 .target {
   grid-column: 2 / 4;
 }
-
-.controls > h3 {
-  background-color: grey;
-}
