@@ -1,0 +1,167 @@
+body {
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  font-family: "Righteous", cursive;
+}
+
+h1 {
+  font-size: 40px;
+  color: #f9dc72;
+  text-align: center;
+}
+
+.container {
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 60%;
+  background-color: #4984c3;
+  padding: 20px;
+}
+
+p {
+  font-size: 25px;
+}
+
+.board {
+  height: 500px;
+  width: 500px;
+  position: relative;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.pie_segment {
+  --a: calc(var(--over50, 0) * -100%);
+  --b: calc((1 + var(--over50, 0)) * 100%);
+  --degrees: calc((var(--offset, 0) / 100) * 360);
+  clip-path: polygon(
+    var(--a) var(--a),
+    var(--b) var(--a),
+    var(--b) var(--b),
+    var(--a) var(--b)
+  );
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transform: translate(0, -50%) rotate(90deg)
+    rotate(calc(var(--degrees) * 1deg));
+  transform-origin: 50% 100%;
+  z-index: calc(1 + var(--over50));
+}
+
+.pie_segment:after,
+.pie_segment:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: var(--color, yellow);
+}
+
+.currentplayersContainer {
+  text-align: center;
+}
+
+.pie_segment:before {
+  --degrees: calc((var(--value, 45) / 100) * 360);
+  transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
+  transform-origin: 50% 0;
+}
+
+.pie_segment:after {
+  opacity: var(--over50, 0);
+}
+
+.currentPlayers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.currentPlayers > h2 {
+  grid-column: 1 / 4;
+  font-size: 30px;
+  color: white;
+}
+
+.listedPlayer > button {
+  background-color: #ec262b;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+input {
+  padding: 2rem 10rem;
+  font-size: 40px;
+}
+
+.submit,
+.shuffle {
+  background-color: #f9dc72;
+  font-size: 40px;
+  border-radius: 10px;
+}
+
+.listedPlayer {
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 25px;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 5rem 15rem;
+}
+
+.boardContainer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 10rem;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  text-align: center;
+  border-radius: 10px;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  grid-column: 1 / 3;
+  text-align: center;
+  font-size: 40px;
+}
+
+.controls > button {
+  font-size: 20px;
+  margin: 1rem;
+  background-color: white;
+}
+
+.team > div {
+  font-size: 30px;
+  grid-column: 3;
+}
+
+.target {
+  grid-column: 2 / 4;
+}
+
+.controls > h3 {
+  background-color: grey;
+}
